@@ -1,16 +1,25 @@
 package com.microservices.commons.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
+@Document(collection = "campaign")
 public class CampaignModel {
 
     @Id
     private String id;
+
     private String name;
+
     private String footballTealId;
+
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date initialEffectiveDate;
+
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date finalEffectiveDate;
 
     public String getId() {

@@ -1,13 +1,21 @@
 package com.microservices.commons.presenter;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class CampaignPresenter {
 
     private String id;
+
     private String name;
+
     private String footballTealId;
+
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date initialEffectiveDate;
+
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date finalEffectiveDate;
 
     public String getId() {

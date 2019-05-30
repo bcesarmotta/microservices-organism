@@ -1,12 +1,19 @@
 package com.microservices.commons.param;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class CampaignParam {
 
     private String name;
+
     private String footballTealId;
+
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date initialEffectiveDate;
+
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date finalEffectiveDate;
 
     public String getName() {
