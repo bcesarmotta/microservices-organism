@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/consumer/FootballTeamConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/model/FootballTeamModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/param/FootballTeamParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/presenter/FootballTeamPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../footbal-team/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../footbal-team/src/main/java/com/microservices/footballTeam/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../footbal-team/src/main/java/com/microservices/footballTeam/controller/FootballTeamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../footbal-team/src/main/java/com/microservices/footballTeam/repository/IFootballTeamRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../footbal-team/src/main/java/com/microservices/footballTeam/service/FootballTeamService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../footbal-team/src/main/java/com/microservices/footballTeam/service/IFootballTeamService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../footbal-team/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/CampaignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/CampaignService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/ICampaignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/ICampaignService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -250,7 +232,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1920" height="1082" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20971185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
