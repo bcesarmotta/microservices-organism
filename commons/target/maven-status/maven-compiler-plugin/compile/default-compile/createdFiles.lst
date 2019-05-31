@@ -1,3 +1,6 @@
-com/microservices/commons/param/CampaignParam.class
 com/microservices/commons/model/CampaignModel.class
+com/microservices/commons/model/FootballTeamModel.class
+com/microservices/commons/param/FootballTeamParam.class
+com/microservices/commons/param/CampaignParam.class
 com/microservices/commons/presenter/CampaignPresenter.class
+com/microservices/commons/presenter/FootballTeamPresenter.class

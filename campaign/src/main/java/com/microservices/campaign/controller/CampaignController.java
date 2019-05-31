@@ -4,18 +4,17 @@ import com.microservices.campaign.service.ICampaignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.microservices.commons.param.CampaignParam;
 
-@RestController("campaign")
+@RestController
+@RequestMapping("campaign")
 public class CampaignController {
 
     @Autowired
     private ICampaignService campaignService;
 
-    @RequestMapping
+    @PostMapping
     public ResponseEntity postCampaign(@RequestBody CampaignParam param) {
 
         validateBeforeSave(param);
@@ -26,6 +25,15 @@ public class CampaignController {
 
         );
     }
+
+    @GetMapping
+    public ResponseEntity getCampaigns() {
+        return new ResponseEntity(
+                campaignService.findAll(),
+                HttpStatus.OK
+        );
+    }
+
 
     public void validateBeforeSave(CampaignParam param) {
 

@@ -1,0 +1,11 @@
+server:
+  port: 8084
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      username: admin
+      password: admin123
+      database: microservices

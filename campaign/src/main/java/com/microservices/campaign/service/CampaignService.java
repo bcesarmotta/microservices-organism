@@ -7,6 +7,8 @@ import com.microservices.commons.presenter.CampaignPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,7 +18,18 @@ public class CampaignService implements ICampaignService {
     private ICampaignRepository campaignRepository;
 
     public CampaignPresenter save(CampaignParam campaignParam) {
-        return convertToPresenter(campaignRepository.save(convertParamToModel(campaignParam)));
+        return convertModelToPresenter(campaignRepository.save(convertParamToModel(campaignParam)));
+    }
+
+    @Override
+    public List<CampaignPresenter> findAll() {
+        List<CampaignPresenter> presenter = new ArrayList<CampaignPresenter>();
+
+        campaignRepository.findAll()
+                .forEach(campaignModel -> presenter.add(convertModelToPresenter(campaignModel)));
+
+        return presenter;
+
     }
 
     private CampaignModel convertParamToModel(CampaignParam campaignParam) {
@@ -35,7 +48,7 @@ public class CampaignService implements ICampaignService {
                 }).orElse(new CampaignModel());
     }
 
-    private CampaignPresenter convertToPresenter(CampaignModel campaignModel) {
+    private CampaignPresenter convertModelToPresenter(CampaignModel campaignModel) {
             return Optional.ofNullable(campaignModel)
                     .map(model -> {
                         CampaignPresenter presenter = new CampaignPresenter();
