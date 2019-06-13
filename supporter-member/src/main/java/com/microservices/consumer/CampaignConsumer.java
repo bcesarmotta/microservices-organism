@@ -25,13 +25,6 @@ public class CampaignConsumer {
                 CAMPAIGN_URL + id,
                 CampaignPresenter.class
         );
-
-        /*
-        return restTemplate.exchange(
-                CAMPAIGN_URL + id,
-                HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<CampaignPresenter>>(){}).getBody();
-         */
     }
 
     public List<CampaignPresenter> findByFootballTeamId(String id) {

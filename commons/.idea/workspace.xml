@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/model/SupporterMemberModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/param/SupporterMemberParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/presenter/SupporterMemberPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/configuration/RestTemplateConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/consumer/CampaignConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/controller/SupporterMemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/repository/ISupporterMemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/service/ISupporterMemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/service/SupporterMemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/consumer/FootballTeamConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/consumer/FootballTeamConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/repository/ICampaignRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/repository/ICampaignRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/CampaignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/CampaignService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/ICampaignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/service/ICampaignService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/consumer/CampaignConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/consumer/CampaignConsumer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
