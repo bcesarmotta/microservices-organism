@@ -1,6 +1,5 @@
 package com.microservices.campaign.consumer;
 
-import com.google.gson.Gson;
 import com.microservices.commons.presenter.FootballTeamPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;

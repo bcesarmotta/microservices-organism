@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface ICampaignService {
     CampaignPresenter save(CampaignParam campaignParam);
     List<CampaignPresenter> findAll();
+    CampaignPresenter findById(String id);
+    List<CampaignPresenter> findAllByFootballTeamId(String id);
     void deleteById(String id);
 }

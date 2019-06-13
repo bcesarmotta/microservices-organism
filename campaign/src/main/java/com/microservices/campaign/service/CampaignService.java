@@ -34,6 +34,22 @@ public class CampaignService implements ICampaignService {
     }
 
     @Override
+    public CampaignPresenter findById(String id) {
+        return convertModelToPresenter(campaignRepository.findById(id).orElse(new CampaignModel()));
+    }
+
+    @Override
+    public List<CampaignPresenter> findAllByFootballTeamId(String id) {
+        List<CampaignPresenter> presenter = new ArrayList<CampaignPresenter>();
+
+        campaignRepository.findAllByFootballTeamId(id)
+            .forEach(campaignModel -> presenter.add(convertModelToPresenter(campaignModel)));
+
+        return presenter;
+    }
+
+
+    @Override
     public void deleteById(String id) {
         campaignRepository.deleteById(id);
     }
