@@ -1,5 +1,6 @@
 package com.microservices.campaign.service;
 
+import com.microservices.campaign.consumer.FootballTeamConsumer;
 import com.microservices.campaign.repository.ICampaignRepository;
 import com.microservices.commons.model.CampaignModel;
 import com.microservices.commons.param.CampaignParam;
@@ -32,6 +33,11 @@ public class CampaignService implements ICampaignService {
 
     }
 
+    @Override
+    public void deleteById(String id) {
+        campaignRepository.deleteById(id);
+    }
+
     private CampaignModel convertParamToModel(CampaignParam campaignParam) {
 
         return Optional.ofNullable(campaignParam)
@@ -39,8 +45,9 @@ public class CampaignService implements ICampaignService {
 
                     CampaignModel model = new CampaignModel();
 
+                    Optional.ofNullable(param.getId()).ifPresent(id -> model.setId(id));
                     Optional.ofNullable(param.getName()).ifPresent(name -> model.setName(name));
-                    Optional.ofNullable(param.getFootballTealId()).ifPresent(footballTeamId -> model.setFootballTealId(footballTeamId));
+                    Optional.ofNullable(param.getFootballTeamId()).ifPresent(footballTeamId -> model.setFootballTeamId(footballTeamId));
                     Optional.ofNullable(param.getInitialEffectiveDate()).ifPresent(initialEffectiveDate -> model.setInitialEffectiveDate(initialEffectiveDate));
                     Optional.ofNullable(param.getFinalEffectiveDate()).ifPresent(finalEffectiveDate -> model.setFinalEffectiveDate(finalEffectiveDate));
 
@@ -55,7 +62,13 @@ public class CampaignService implements ICampaignService {
 
                         Optional.ofNullable(model.getName()).ifPresent(name -> presenter.setName(name));
                         Optional.ofNullable(model.getId()).ifPresent(id -> presenter.setId(id));
-                        Optional.ofNullable(model.getFootballTealId()).ifPresent(footballTeamId -> presenter.setFootballTealId(footballTeamId));
+
+                        Optional.ofNullable(model.getFootballTeamId()).ifPresent(footballTeamId -> {
+                            FootballTeamConsumer footballTeamConsumer = new FootballTeamConsumer();
+
+                            presenter.setFootballTeam(footballTeamConsumer.findById(footballTeamId));
+                        });
+
                         Optional.ofNullable(model.getInitialEffectiveDate()).ifPresent(initialEffectiveDate -> presenter.setInitialEffectiveDate(initialEffectiveDate));
                         Optional.ofNullable(model.getFinalEffectiveDate()).ifPresent(finalEffectiveDate -> presenter.setFinalEffectiveDate(finalEffectiveDate));
 

@@ -6,15 +6,25 @@ import java.util.Date;
 
 public class CampaignParam {
 
+    private String id;
+
     private String name;
 
-    private String footballTealId;
+    private String footballTeamId;
 
     @JsonFormat(pattern="dd/MM/yyyy")
     private Date initialEffectiveDate;
 
     @JsonFormat(pattern="dd/MM/yyyy")
     private Date finalEffectiveDate;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -24,12 +34,12 @@ public class CampaignParam {
         this.name = name;
     }
 
-    public String getFootballTealId() {
-        return footballTealId;
+    public String getFootballTeamId() {
+        return footballTeamId;
     }
 
-    public void setFootballTealId(String footballTealId) {
-        this.footballTealId = footballTealId;
+    public void setFootballTeamId(String footballTeamId) {
+        this.footballTeamId = footballTeamId;
     }
 
     public Date getInitialEffectiveDate() {

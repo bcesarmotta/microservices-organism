@@ -10,7 +10,7 @@ public class CampaignPresenter {
 
     private String name;
 
-    private String footballTealId;
+    private FootballTeamPresenter footballTeam;
 
     @JsonFormat(pattern="dd/MM/yyyy")
     private Date initialEffectiveDate;
@@ -34,12 +34,12 @@ public class CampaignPresenter {
         this.name = name;
     }
 
-    public String getFootballTealId() {
-        return footballTealId;
+    public FootballTeamPresenter getFootballTeam() {
+        return footballTeam;
     }
 
-    public void setFootballTealId(String footballTealId) {
-        this.footballTealId = footballTealId;
+    public void setFootballTeam(FootballTeamPresenter footballTeam) {
+        this.footballTeam = footballTeam;
     }
 
     public Date getInitialEffectiveDate() {

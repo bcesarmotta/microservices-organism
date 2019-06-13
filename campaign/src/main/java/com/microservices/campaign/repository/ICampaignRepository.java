@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ICampaignRepository extends MongoRepository<CampaignModel, String> {
+    @Override
+    void deleteById(String id);
 }
