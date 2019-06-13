@@ -1,6 +1,8 @@
 server:
   port: 8083
 spring:
+  application:
+    name: CAMPAIGN_SERVICE
   data:
     mongodb:
       host: localhost
@@ -9,3 +11,9 @@ spring:
       username: admin
       password: admin123
       database: microservices
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true

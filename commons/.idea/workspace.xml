@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../discovery-server/src/main/java/com/microservices/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../discovery-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../campaign/campaign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/campaign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../campaign/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../campaign/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/consumer/CampaignConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/consumer/CampaignConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />

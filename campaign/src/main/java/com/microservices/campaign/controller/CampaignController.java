@@ -1,14 +1,11 @@
 package com.microservices.campaign.controller;
 
 import com.microservices.campaign.service.ICampaignService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.microservices.commons.param.CampaignParam;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("campaign")
@@ -16,6 +13,7 @@ public class CampaignController {
 
     @Autowired
     private ICampaignService campaignService;
+
 
     @PostMapping
     public ResponseEntity postCampaign(@RequestBody CampaignParam param) {
