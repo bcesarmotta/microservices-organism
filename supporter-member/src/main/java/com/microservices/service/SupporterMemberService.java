@@ -10,12 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class SupporterMemberService implements ISupporterMemberService{
@@ -30,6 +27,11 @@ public class SupporterMemberService implements ISupporterMemberService{
 
     }
 
+    @Override
+    public SupporterMemberPresenter findByEmail(String email) {
+        return Optional.ofNullable(convertModelToPresenter(supporterMemberRepository.findByEmail(email))).orElse(null);
+    }
+
     private SupporterMemberPresenter convertModelToPresenter(SupporterMemberModel supporterMemberModel) {
         return Optional.ofNullable(supporterMemberModel)
                 .map(model -> {
@@ -40,7 +42,7 @@ public class SupporterMemberService implements ISupporterMemberService{
                     Optional.ofNullable(model.getEmail()).ifPresent(email -> presenter.setEmail(email));
                     Optional.ofNullable(model.getBirthDate()).ifPresent(birthDate -> presenter.setBirthDate(birthDate));
 
-                    // iterate over que ids
+                    // iterate over the ids
                     Optional.ofNullable(model.getCampaignIds()).ifPresent(
                             ids -> {
                                 CampaignConsumer consumer = new CampaignConsumer();
@@ -54,7 +56,7 @@ public class SupporterMemberService implements ISupporterMemberService{
                     );
 
                     return presenter;
-                }).orElse(new SupporterMemberPresenter());
+                }).orElse(null);
     }
 
     private SupporterMemberModel convertParamToModel(SupporterMemberParam supporterMemberParam) {
