@@ -25,23 +25,19 @@ public class SupporterMemberController {
     public ResponseEntity saveSupporterMember(@RequestBody SupporterMemberParam param) {
 
         validateBeforeSave(param);
-
         return Optional.ofNullable(supporterMemberService.findByEmail(param.getEmail()))
-                .map(supporter -> {
-
-                    Optional.ofNullable(supporter.getCampaigns()).ifPresent(
-                            supporterAlreadyExisting -> new ResponseEntity("Usuário já cadastrado!", HttpStatus.OK)
-                    );
-
-                    return new ResponseEntity(campaignConsumer.findByFootballTeamId(param.getFootballTeamId()),HttpStatus.OK);
-                })
+                .map(supporter ->
+                        Optional.ofNullable(supporter.getCampaigns())
+                            .map(
+                                supporterAlreadyExisting -> new ResponseEntity("Usuário já cadastrado!", HttpStatus.OK)
+                            ).orElse(new ResponseEntity(campaignConsumer.findByFootballTeamId(param.getFootballTeamId()),HttpStatus.OK)))
                 .orElseGet(() -> new ResponseEntity(supporterMemberService.save(param),HttpStatus.CREATED));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity updateSupporterMember(@PathVariable String id, @RequestBody SupporterMemberParam param) {
+        param.setId(id);
         validateBeforeUpdate(param);
-
         return new ResponseEntity(supporterMemberService.save(param),HttpStatus.OK);
     }
 

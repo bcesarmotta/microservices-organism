@@ -23,7 +23,30 @@ public class SupporterMemberService implements ISupporterMemberService{
     @Override
     public SupporterMemberPresenter save(SupporterMemberParam supporterParam) {
 
-        return convertModelToPresenter(supporterMemberRepository.save(convertParamToModel(supporterParam)));
+        return Optional.ofNullable(supporterParam.getId())
+                .map(id -> {
+
+                    return Optional.ofNullable(supporterMemberRepository.findById(id))
+                            .map(existingSupporter -> {
+                                Optional.ofNullable(supporterParam.getEmail())
+                                        .ifPresent(email -> existingSupporter.get().setEmail(email));
+
+                                Optional.ofNullable(supporterParam.getName())
+                                        .ifPresent(name -> existingSupporter.get().setName(name));
+
+                                Optional.ofNullable(supporterParam.getBirthDate())
+                                        .ifPresent(birthDate -> existingSupporter.get().setBirthDate(birthDate));
+
+                                Optional.ofNullable(supporterParam.getFootballTeamId())
+                                        .ifPresent(footballTeamId -> existingSupporter.get().setFootballTeamId(footballTeamId));
+
+                                Optional.ofNullable(supporterParam.getCampaignIds())
+                                        .ifPresent(ids -> existingSupporter.get().setCampaignIds(ids));
+
+                                return convertModelToPresenter(supporterMemberRepository.save(existingSupporter.get()));
+                            }).orElseThrow(null);
+
+                }).orElse(convertModelToPresenter(supporterMemberRepository.save(convertParamToModel(supporterParam))));
 
     }
 
@@ -68,17 +91,9 @@ public class SupporterMemberService implements ISupporterMemberService{
                    Optional.ofNullable(param.getName()).ifPresent(name -> model.setName(name));
                    Optional.ofNullable(param.getEmail()).ifPresent(email -> model.setEmail(email));
                    Optional.ofNullable(param.getBirthDate()).ifPresent(birthDate -> model.setBirthDate(birthDate));
+                   Optional.ofNullable(param.getFootballTeamId()).ifPresent(footballTeamId -> model.setFootballTeamId(footballTeamId    ));
 
-                   CampaignConsumer consumer = new CampaignConsumer();
-
-                   Optional.ofNullable(param.getCampaignIds())
-                           .ifPresentOrElse(
-                                   ids -> model.setCampaignIds(ids), () -> model.setCampaignIds(
-                                           consumer.findByFootballTeamId(param.getFootballTeamId())
-                                                   .stream()
-                                                   .map(CampaignPresenter::getId)
-                                                   .collect(Collectors.toList())
-                                   ));
+                   Optional.ofNullable(param.getCampaignIds()).ifPresent(ids -> model.setCampaignIds(ids));
                    return model;
 
                }).orElse(new SupporterMemberModel());

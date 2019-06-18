@@ -17,6 +17,8 @@ public class SupporterMemberModel {
 
     private String email;
 
+    private String footballTeamId;
+
     private List<String> campaignIds;
 
     @JsonFormat(pattern="dd/MM/yyyy")
@@ -44,6 +46,14 @@ public class SupporterMemberModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFootballTeamId() {
+        return footballTeamId;
+    }
+
+    public void setFootballTeamId(String footballTeamId) {
+        this.footballTeamId = footballTeamId;
     }
 
     public List<String> getCampaignIds() {
