@@ -1,11 +1,13 @@
-package com.microservices.service;
+package com.microservices.supporter.member.service;
+
 
 import com.microservices.commons.model.SupporterMemberModel;
 import com.microservices.commons.param.SupporterMemberParam;
 import com.microservices.commons.presenter.CampaignPresenter;
 import com.microservices.commons.presenter.SupporterMemberPresenter;
-import com.microservices.consumer.CampaignConsumer;
-import com.microservices.repository.ISupporterMemberRepository;
+import com.microservices.supporter.member.repository.ISupporterMemberRepository;
+import com.microservices.supporter.member.service.consumer.CampaignConsumer;
+import com.microservices.supporter.member.service.producer.CampaignProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,35 +20,57 @@ import java.util.stream.Collectors;
 public class SupporterMemberService implements ISupporterMemberService{
 
     @Autowired
-    private ISupporterMemberRepository supporterMemberRepository;
+    public ISupporterMemberRepository supporterMemberRepository;
+
+    @Autowired
+    private CampaignConsumer consumer;
+
+    @Autowired
+    private CampaignProducer producer;
 
     @Override
     public SupporterMemberPresenter save(SupporterMemberParam supporterParam) {
 
         return Optional.ofNullable(supporterParam.getId())
-                .map(id -> {
+                .map(id -> Optional.ofNullable(supporterMemberRepository.findById(id))
+                        .map(existingSupporter -> {
+                            Optional.ofNullable(supporterParam.getEmail())
+                                    .ifPresent(email -> existingSupporter.get().setEmail(email));
 
-                    return Optional.ofNullable(supporterMemberRepository.findById(id))
-                            .map(existingSupporter -> {
-                                Optional.ofNullable(supporterParam.getEmail())
-                                        .ifPresent(email -> existingSupporter.get().setEmail(email));
+                            Optional.ofNullable(supporterParam.getName())
+                                    .ifPresent(name -> existingSupporter.get().setName(name));
 
-                                Optional.ofNullable(supporterParam.getName())
-                                        .ifPresent(name -> existingSupporter.get().setName(name));
+                            Optional.ofNullable(supporterParam.getBirthDate())
+                                    .ifPresent(birthDate -> existingSupporter.get().setBirthDate(birthDate));
 
-                                Optional.ofNullable(supporterParam.getBirthDate())
-                                        .ifPresent(birthDate -> existingSupporter.get().setBirthDate(birthDate));
+                            Optional.ofNullable(supporterParam.getFootballTeamId())
+                                    .ifPresent(footballTeamId -> existingSupporter.get().setFootballTeamId(footballTeamId));
 
-                                Optional.ofNullable(supporterParam.getFootballTeamId())
-                                        .ifPresent(footballTeamId -> existingSupporter.get().setFootballTeamId(footballTeamId));
+                            Optional.ofNullable(supporterParam.getCampaignIds())
+                                    .ifPresent(ids -> existingSupporter.get().setCampaignIds(ids));
 
-                                Optional.ofNullable(supporterParam.getCampaignIds())
-                                        .ifPresent(ids -> existingSupporter.get().setCampaignIds(ids));
+                            return convertModelToPresenter(supporterMemberRepository.save(existingSupporter.get()));
+                        }).orElseThrow(null)).orElseGet( () -> {
 
-                                return convertModelToPresenter(supporterMemberRepository.save(existingSupporter.get()));
-                            }).orElseThrow(null);
+                            SupporterMemberPresenter presenter = convertModelToPresenter(supporterMemberRepository.save(convertParamToModel(supporterParam)));
+                            SupporterMemberParam param = new SupporterMemberParam();
 
-                }).orElse(convertModelToPresenter(supporterMemberRepository.save(convertParamToModel(supporterParam))));
+                            List<CampaignPresenter> campaigns = consumer.findByFootballTeamId(supporterParam.getFootballTeamId());
+
+                            param.setId(presenter.getId());
+                            param.setCampaignIds(
+                                    campaigns.stream()
+                                            .map(CampaignPresenter::getId)
+                                            .collect(Collectors.toList())
+
+                            );
+
+                            producer.sendUserAndCampaignIdsToBeAssociated(param);
+
+                            return presenter;
+                        }
+
+                );
 
     }
 

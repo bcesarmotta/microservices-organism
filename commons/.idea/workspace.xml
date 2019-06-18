@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/configuration/JmsConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/service/producer/CampaignProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/microservices/commons/model/SupporterMemberModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/model/SupporterMemberModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/controller/SupporterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/controller/SupporterMemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/service/SupporterMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/service/SupporterMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../discovery-server/src/main/java/com/microservices/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-server/src/main/java/com/microservices/discovery/server/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/configuration/RestTemplateConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/configuration/RestTemplateConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/consumer/CampaignConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/service/consumer/CampaignConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/controller/SupporterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/controller/SupporterMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/repository/ISupporterMemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/repository/ISupporterMemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/service/ISupporterMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/service/ISupporterMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/service/SupporterMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/service/SupporterMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/microservices/commons/param/SupporterMemberParam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="270">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -74,29 +84,7 @@
               <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#613#614#0" expanded="true" />
-                <element signature="e#649#650#0" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#735#736#0" expanded="true" />
-                <element signature="e#775#776#0" expanded="true" />
-                <element signature="e#807#808#0" expanded="true" />
-                <element signature="e#839#840#0" expanded="true" />
-                <element signature="e#867#868#0" expanded="true" />
-                <element signature="e#909#910#0" expanded="true" />
-                <element signature="e#943#944#0" expanded="true" />
-                <element signature="e#984#985#0" expanded="true" />
-                <element signature="e#1021#1022#0" expanded="true" />
-                <element signature="e#1081#1082#0" expanded="true" />
-                <element signature="e#1133#1134#0" expanded="true" />
-                <element signature="e#1177#1178#0" expanded="true" />
-                <element signature="e#1211#1212#0" expanded="true" />
-                <element signature="e#1271#1272#0" expanded="true" />
-                <element signature="e#1317#1318#0" expanded="true" />
-                <element signature="e#1351#1352#0" expanded="true" />
-                <element signature="e#1383#1384#0" expanded="true" />
-                <element signature="e#1431#1432#0" expanded="true" />
-                <element signature="e#1473#1474#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -238,10 +226,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="y" value="25" />
-    <option name="width" value="1920" />
-    <option name="height" value="1055" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="240" />
+    <option name="y" value="114" />
+    <option name="width" value="1440" />
+    <option name="height" value="789" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -251,8 +240,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -378,10 +367,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="1055" extended-state="7" />
+    <frame x="240" y="114" width="1440" height="789" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23692636" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32209468" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -391,7 +380,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3034557" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3034557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -458,6 +447,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microservices/commons/param/SupporterMemberParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -552,45 +551,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microservices/commons/param/SupporterMemberParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microservices/commons/model/SupporterMemberModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#775#776#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#909#910#0" expanded="true" />
-            <element signature="e#943#944#0" expanded="true" />
-            <element signature="e#984#985#0" expanded="true" />
-            <element signature="e#1021#1022#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-            <element signature="e#1133#1134#0" expanded="true" />
-            <element signature="e#1177#1178#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1317#1318#0" expanded="true" />
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1383#1384#0" expanded="true" />
-            <element signature="e#1431#1432#0" expanded="true" />
-            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
           </folding>
         </state>
       </provider>

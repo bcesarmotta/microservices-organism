@@ -1,4 +1,4 @@
-package com.microservices.service;
+package com.microservices.supporter.member.service;
 
 import com.microservices.commons.param.SupporterMemberParam;
 import com.microservices.commons.presenter.SupporterMemberPresenter;

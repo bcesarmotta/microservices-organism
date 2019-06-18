@@ -1,9 +1,9 @@
-package com.microservices.consumer;
+package com.microservices.supporter.member.service.consumer;
 
 import com.microservices.commons.presenter.CampaignPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.*;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 

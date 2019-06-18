@@ -1,7 +1,6 @@
-package com.microservices.repository;
+package com.microservices.supporter.member.repository;
 
 import com.microservices.commons.model.SupporterMemberModel;
-import com.microservices.commons.presenter.SupporterMemberPresenter;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

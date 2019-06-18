@@ -1,4 +1,4 @@
-package com.microservices;
+package com.microservices.supporter.member;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
