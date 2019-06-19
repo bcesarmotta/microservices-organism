@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: CAMPAIGN_SERVICE
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
   data:
     mongodb:
       host: localhost

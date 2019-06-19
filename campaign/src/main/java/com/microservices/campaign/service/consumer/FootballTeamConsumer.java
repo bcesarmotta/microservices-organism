@@ -1,4 +1,4 @@
-package com.microservices.campaign.consumer;
+package com.microservices.campaign.service.consumer;
 
 import com.microservices.commons.presenter.FootballTeamPresenter;
 import org.springframework.beans.factory.annotation.Autowired;

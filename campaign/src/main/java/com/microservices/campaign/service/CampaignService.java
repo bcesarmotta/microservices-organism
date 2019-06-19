@@ -1,6 +1,6 @@
 package com.microservices.campaign.service;
 
-import com.microservices.campaign.consumer.FootballTeamConsumer;
+import com.microservices.campaign.service.consumer.FootballTeamConsumer;
 import com.microservices.campaign.repository.ICampaignRepository;
 import com.microservices.commons.model.CampaignModel;
 import com.microservices.commons.param.CampaignParam;
