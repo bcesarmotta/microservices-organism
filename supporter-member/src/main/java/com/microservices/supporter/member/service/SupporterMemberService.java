@@ -53,19 +53,8 @@ public class SupporterMemberService implements ISupporterMemberService{
                         }).orElseThrow(null)).orElseGet( () -> {
 
                             SupporterMemberPresenter presenter = convertModelToPresenter(supporterMemberRepository.save(convertParamToModel(supporterParam)));
-                            SupporterMemberParam param = new SupporterMemberParam();
 
-                            List<CampaignPresenter> campaigns = consumer.findByFootballTeamId(supporterParam.getFootballTeamId());
-
-                            param.setId(presenter.getId());
-                            param.setCampaignIds(
-                                    campaigns.stream()
-                                            .map(CampaignPresenter::getId)
-                                            .collect(Collectors.toList())
-
-                            );
-
-                            producer.sendUserAndCampaignIdsToBeAssociated(param);
+                            associateUserToCampaigns(presenter.getId(), supporterParam.getFootballTeamId());
 
                             return presenter;
                         }
@@ -121,5 +110,23 @@ public class SupporterMemberService implements ISupporterMemberService{
                    return model;
 
                }).orElse(new SupporterMemberModel());
+    }
+
+    @Override
+    public void associateUserToCampaigns(String userId, String footballTeamId) {
+
+        SupporterMemberParam param = new SupporterMemberParam();
+
+        List<CampaignPresenter> campaigns = consumer.findByFootballTeamId(footballTeamId);
+
+        param.setId(userId);
+        param.setCampaignIds(
+                campaigns.stream()
+                        .map(CampaignPresenter::getId)
+                        .collect(Collectors.toList())
+        );
+
+        producer.sendUserAndCampaignIdsToBeAssociated(param);
+
     }
 }

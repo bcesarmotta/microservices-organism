@@ -28,7 +28,10 @@ public class SupporterMemberController {
                 .map(supporter ->
                         Optional.ofNullable(supporter.getCampaigns())
                             .map(
-                                supporterAlreadyExisting -> new ResponseEntity("Usuário já cadastrado!", HttpStatus.OK)
+                                supporterAlreadyExisting -> {
+                                    supporterMemberService.associateUserToCampaigns(supporter.getId(), param.getFootballTeamId());
+                                    return new ResponseEntity("Usuário já cadastrado!", HttpStatus.OK);
+                                }
                             ).orElse(new ResponseEntity(campaignConsumer.findByFootballTeamId(param.getFootballTeamId()),HttpStatus.OK)))
                 .orElseGet(() -> new ResponseEntity(supporterMemberService.save(param),HttpStatus.CREATED));
     }
