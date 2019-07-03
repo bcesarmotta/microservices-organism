@@ -23,6 +23,7 @@ To get this project working, you will need to install the following technologies
 ```
 Maven
 Docker
+MongoDB
 ```
 
 ### Installing
