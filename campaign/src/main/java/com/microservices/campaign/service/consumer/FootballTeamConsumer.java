@@ -22,10 +22,10 @@ public class FootballTeamConsumer {
     private DiscoveryClient discoveryClient;
 
     private static final String FOOTBALL_TEAM_SERVICE_NAME = "FOOTBALL_TEAM_SERVICE";
+
     private static final String FOOTBALL_TEAM_SERVICE_PATH = "/football-team/";
 
     public FootballTeamPresenter findById(String id) {
-
         return discoveryClient.getInstances(FOOTBALL_TEAM_SERVICE_NAME)
                 .stream()
                 .findFirst()
