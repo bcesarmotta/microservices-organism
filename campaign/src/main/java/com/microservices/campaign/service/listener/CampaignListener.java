@@ -25,6 +25,5 @@ public class CampaignListener {
                     SupporterMemberParam param = gson.fromJson(payload, SupporterMemberParam.class);
                     Optional.ofNullable(param).ifPresent(suporterMemberConsumer::associateCampaignsToUser);
                 });
-
     }
 }
