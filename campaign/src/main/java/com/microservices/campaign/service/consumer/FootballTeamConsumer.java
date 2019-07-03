@@ -2,6 +2,7 @@ package com.microservices.campaign.service.consumer;
 
 import com.microservices.commons.presenter.FootballTeamPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,17 +18,31 @@ public class FootballTeamConsumer {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String FOOTBALL_TEAM_URL = "http://localhost:8084/football-team/";
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    private static final String FOOTBALL_TEAM_SERVICE_NAME = "FOOTBALL_TEAM_SERVICE";
+    private static final String FOOTBALL_TEAM_SERVICE_PATH = "/football-team/";
 
     public FootballTeamPresenter findById(String id) {
 
-        restTemplate = new RestTemplate();
+        return discoveryClient.getInstances(FOOTBALL_TEAM_SERVICE_NAME)
+                .stream()
+                .findFirst()
+                .map(
+                        service ->
+                            restTemplate.exchange(
+                                service.getUri() + FOOTBALL_TEAM_SERVICE_PATH + id,
+                                HttpMethod.GET,
+                                getDefaultHeaders(),
+                                FootballTeamPresenter.class).getBody()
+                ).orElse(null);
+    }
 
+    private HttpEntity getDefaultHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity <String> entity = new HttpEntity<String>(headers);
-
-        return restTemplate.exchange(FOOTBALL_TEAM_URL + id, HttpMethod.GET, entity, FootballTeamPresenter.class).getBody();
-
+        return entity;
     }
 }

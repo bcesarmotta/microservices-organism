@@ -18,6 +18,9 @@ public class CampaignService implements ICampaignService {
     @Autowired
     private ICampaignRepository campaignRepository;
 
+    @Autowired
+    private FootballTeamConsumer footballTeamConsumer;
+
     public CampaignPresenter save(CampaignParam campaignParam) {
         return convertModelToPresenter(campaignRepository.save(convertParamToModel(campaignParam)));
     }
@@ -80,8 +83,6 @@ public class CampaignService implements ICampaignService {
                         Optional.ofNullable(model.getId()).ifPresent(id -> presenter.setId(id));
 
                         Optional.ofNullable(model.getFootballTeamId()).ifPresent(footballTeamId -> {
-                            FootballTeamConsumer footballTeamConsumer = new FootballTeamConsumer();
-
                             presenter.setFootballTeam(footballTeamConsumer.findById(footballTeamId));
                         });
 

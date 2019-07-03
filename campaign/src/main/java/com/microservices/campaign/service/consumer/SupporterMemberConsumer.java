@@ -2,6 +2,7 @@ package com.microservices.campaign.service.consumer;
 
 import com.microservices.commons.param.SupporterMemberParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ public class SupporterMemberConsumer {
     private RestTemplate restTemplate;
 
     public void associateCampaignsToUser(SupporterMemberParam param) {
+
         HttpEntity<SupporterMemberParam> request = new HttpEntity<>(param);
 
         restTemplate.exchange(
