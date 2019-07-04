@@ -27,7 +27,6 @@ public class SupporterMemberConsumer {
     private DiscoveryClient discoveryClient;
 
     public void associateCampaignsToUser(SupporterMemberParam param) {
-
         discoveryClient.getInstances(SUPPORTER_MEMBER_SERVICE_NAME)
                 .stream()
                 .findFirst()

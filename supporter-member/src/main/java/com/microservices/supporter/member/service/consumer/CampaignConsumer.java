@@ -2,6 +2,7 @@ package com.microservices.supporter.member.service.consumer;
 
 import com.microservices.commons.presenter.CampaignPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -15,24 +16,37 @@ public class CampaignConsumer {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String CAMPAIGN_URL = "http://localhost:8083/campaign/";
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    private static final String CAMPAIGN_SERVICE_NAME = "CAMPAIGN_SERVICE";
+
+    private static final String CAMPAIGN_SERVICE_PATH = "/campaign/";
+
+    private static final String FOOTBALL_TEAM_SERVICE_PATH = "footballTeam/";
 
     public CampaignPresenter findById(String id) {
-        restTemplate = new RestTemplate();
-
-        return restTemplate.getForObject(
-                CAMPAIGN_URL + id,
-                CampaignPresenter.class
-        );
+        return discoveryClient.getInstances(CAMPAIGN_SERVICE_NAME)
+                .stream()
+                .findFirst()
+                .map(service ->
+                    restTemplate.getForObject(service.getUri() + CAMPAIGN_SERVICE_PATH + id,
+                            CampaignPresenter.class
+                    )).orElse(null);
     }
 
     public List<CampaignPresenter> findByFootballTeamId(String id) {
 
-        restTemplate = new RestTemplate();
+        return discoveryClient.getInstances(CAMPAIGN_SERVICE_NAME)
+                .stream()
+                .findFirst()
+                .map(service ->
 
-        return restTemplate.exchange(
-                CAMPAIGN_URL + "footballTeam/" + id,
-                HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<CampaignPresenter>>(){}).getBody();
+                                restTemplate.exchange(
+                                        service.getUri() + CAMPAIGN_SERVICE_PATH + FOOTBALL_TEAM_SERVICE_PATH + id,
+                                        HttpMethod.GET, null,
+                                        new ParameterizedTypeReference<List<CampaignPresenter>>(){}).getBody()
+
+                        ).orElse(null);
     }
 }

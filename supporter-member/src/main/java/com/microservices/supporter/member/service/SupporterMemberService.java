@@ -58,9 +58,7 @@ public class SupporterMemberService implements ISupporterMemberService{
 
                             return presenter;
                         }
-
                 );
-
     }
 
     @Override
@@ -81,7 +79,6 @@ public class SupporterMemberService implements ISupporterMemberService{
                     // iterate over the ids
                     Optional.ofNullable(model.getCampaignIds()).ifPresent(
                             ids -> {
-                                CampaignConsumer consumer = new CampaignConsumer();
 
                                 List<CampaignPresenter> campaigns = new ArrayList<CampaignPresenter>();
 
