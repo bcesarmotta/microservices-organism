@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="" />
+    <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../gateway/src/main/java/com/microservices/gateway/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/pom.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -211,7 +215,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="240" />
     <option name="y" value="114" />
     <option name="width" value="1440" />
@@ -352,10 +356,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="240" y="114" width="1440" height="789" extended-state="0" />
+    <frame x="240" y="114" width="1440" height="789" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32209468" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32711622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />

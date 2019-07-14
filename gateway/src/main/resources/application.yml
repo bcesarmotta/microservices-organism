@@ -1,0 +1,19 @@
+server:
+  port: 8111
+spring:
+  application:
+    name: zuulserver
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+zuul:
+  routes:
+    foos:
+      path: /foos/**
+      #url: http://localhost:8081/spring-zuul-foos-resource/foos
+      url: http://facebook.com.br
