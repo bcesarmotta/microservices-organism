@@ -17,7 +17,7 @@ This project was designed based on Domain Drive Design concepts, and it work as 
 - Spring Boot 2+ for Restful implementation 
 - Eureka for Service Discovery
 - Hystrix for circuit breaker (Not implemented yet)
-- Zuul for Api Gateway (Not implemented yet)
+- Zuul for Api Gateway (In progress)
 ```
 
 ### Prerequisites
