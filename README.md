@@ -5,6 +5,9 @@ This project was created by myself with the purpous of study, apply and improve 
 These instructions will guide you through the understanding and configuration of the entire project.
 After you following this tutorial, will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+## The Project
+This project consists in a comunication between campaigns X supporters X footballTeam, where one or more campaigns related to a football team can be associated to a given customer (in this case the suporter member)
+
 ### Architecture
 This project was designed based on Domain Drive Design concepts, and it work as a part of a micro-services environment, exchanging data through API requests and Queue/Messaging (assynchronous requests).
 
