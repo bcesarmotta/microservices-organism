@@ -77,6 +77,10 @@ public class CampaignController {
     }
 
     public void validateBeforeUpdate(CampaignParam param) {
-
+        Assert.isTrue(param.getId() != null,"ID Parameter name must be informed");
+        Assert.isTrue(param.getName() != null,"Parameter name must be informed");
+        Assert.isTrue(param.getInitialEffectiveDate() != null, "Initial effective date must be informed");
+        Assert.isTrue(param.getFinalEffectiveDate() != null, "Final effective date must be informed");
+        Assert.isTrue(param.getFootballTeamId() != null, "Football team ID must be informed");
     }
 }

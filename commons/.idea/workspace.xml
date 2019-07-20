@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../campaign/src/main/java/com/microservices/campaign/controller/CampaignController.java" afterDir="false" />
-    </list>
+    <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
