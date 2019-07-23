@@ -1,6 +1,7 @@
 package com.microservices.supporter.member.controller;
 
 import com.microservices.commons.param.SupporterMemberParam;
+import com.microservices.commons.response.Message;
 import com.microservices.supporter.member.service.ISupporterMemberService;
 import com.microservices.supporter.member.service.consumer.CampaignConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("supporter-member")
-public class SupporterMemberController {
+public class SupporterMemberController extends ExceptionHandlerController {
 
     @Autowired
     private ISupporterMemberService supporterMemberService;
@@ -23,15 +24,17 @@ public class SupporterMemberController {
 
     @PostMapping
     public ResponseEntity saveSupporterMember(@RequestBody SupporterMemberParam param) {
-
-        validateBeforeSave(param);
-        return Optional.ofNullable(supporterMemberService.findByEmail(param.getEmail()))
+       validateBeforeSave(param);
+       return Optional.ofNullable(supporterMemberService.findByEmail(param.getEmail()))
                 .map(supporter ->
                         Optional.ofNullable(supporter.getCampaigns())
                             .map(
                                 supporterAlreadyExisting -> {
                                     supporterMemberService.associateUserToCampaigns(supporter.getId(), param.getFootballTeamId());
-                                    return new ResponseEntity("Usuário já cadastrado!", HttpStatus.OK);
+                                    return new ResponseEntity(
+                                            new Message("Usuário já cadastrado!"),
+                                            HttpStatus.CONFLICT
+                                    );
                                 }
                             ).orElse(new ResponseEntity(campaignConsumer.findByFootballTeamId(param.getFootballTeamId()),HttpStatus.OK)))
                 .orElseGet(() -> new ResponseEntity(supporterMemberService.save(param),HttpStatus.CREATED));

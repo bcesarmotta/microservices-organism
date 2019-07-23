@@ -1,5 +1,7 @@
 com/microservices/commons/model/FootballTeamModel.class
+com/microservices/commons/response/Error.class
 com/microservices/commons/model/SupporterMemberModel.class
+com/microservices/commons/response/Message.class
 com/microservices/commons/presenter/FootballTeamPresenter.class
 com/microservices/commons/param/SupporterMemberParam.class
 com/microservices/commons/model/CampaignModel.class

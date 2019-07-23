@@ -5,11 +5,12 @@ import com.microservices.footballTeam.service.IFootballTeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("football-team")
-public class FootballTeamController {
+public class FootballTeamController extends ExceptionHandlerController {
 
     @Autowired
     private IFootballTeamService footballTeamService;
@@ -41,6 +42,7 @@ public class FootballTeamController {
     }
 
     private void validateBeforeSave(FootballTeamParam param) {
-
+        Assert.isTrue(param.getName() != null,"Parameter name must be informed");
+        Assert.isTrue(param.getFoundationDate() != null,"Parameter foundation date must be informed");
     }
 }

@@ -10,7 +10,7 @@ import com.microservices.commons.param.CampaignParam;
 
 @RestController
 @RequestMapping("campaign")
-public class CampaignController {
+public class CampaignController extends ExceptionHandlerController {
 
     @Autowired
     private ICampaignService campaignService;
