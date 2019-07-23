@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a0790eb-a4ae-4e5f-8743-0f1b59b3dbd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/response/Error.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/microservices/commons/response/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../football-team/src/main/java/com/microservices/footballTeam/controller/ExceptionHandlerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/controller/ExceptionHandlerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../football-team/src/main/java/com/microservices/footballTeam/controller/FootballTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../football-team/src/main/java/com/microservices/footballTeam/controller/FootballTeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/controller/SupporterMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../supporter-member/src/main/java/com/microservices/supporter/member/controller/SupporterMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../setup.sh" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -354,7 +346,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25080043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -366,7 +357,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4611231" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4611231" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
