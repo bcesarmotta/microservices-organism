@@ -13,7 +13,14 @@ eureka:
 
 zuul:
   routes:
-    foos:
-      path: /foos/**
-      #url: http://localhost:8081/spring-zuul-foos-resource/foos
-      url: http://facebook.com.br
+    campaigns:
+      path: /campaign/**
+      url: http://localhost:8083/campaign/
+
+    supporter-member:
+      path: /supporter-member/**
+      url: http://localhost:8085/supporter-member/
+
+    football-team:
+      path: /football-team/**
+      url: http://localhost:8084/football-team/

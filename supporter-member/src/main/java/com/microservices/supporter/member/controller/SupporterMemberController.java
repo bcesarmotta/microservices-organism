@@ -6,6 +6,7 @@ import com.microservices.supporter.member.service.consumer.CampaignConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -44,10 +45,17 @@ public class SupporterMemberController {
     }
 
     private void validateBeforeSave(SupporterMemberParam param) {
-
+        Assert.isTrue(param.getName() != null,"Parameter name must be informed");
+        Assert.isTrue(param.getEmail() != null, "E-mail must be informed");
+        Assert.isTrue(param.getBirthDate() != null, "Birth date must be informed");
+        Assert.isTrue(param.getFootballTeamId() != null, "Football team ID must be informed");
     }
 
     private void validateBeforeUpdate(SupporterMemberParam param) {
-
+        Assert.isTrue(param.getName() != null,"Parameter name must be informed");
+        Assert.isTrue(param.getEmail() != null, "E-mail must be informed");
+        Assert.isTrue(param.getBirthDate() != null, "Birth date must be informed");
+        Assert.isTrue(param.getFootballTeamId() != null, "Football team ID must be informed");
+        Assert.isTrue(param.getCampaignIds().size() > 0, "Campaign ids must be informed");
     }
 }
