@@ -3,11 +3,17 @@
 ## Stoping any possible running images
 docker stop $(docker ps | awk 'NR > 1 {print $1}')
 
+
+
+sudo apt install docker-compose
+
+
 echo '===== Updating dependencies'
 echo ''
 
 sudo apt update
 
+echo ''
 
 ## Install Mongodb
 
@@ -16,6 +22,8 @@ echo ''
 
 sudo apt install -y mongodb
 
+echo ''
+
 ## Start service
 
 echo '===== Starting Mongodb Service'
@@ -23,9 +31,12 @@ echo ''
 
 sudo service mongodb start
 
+echo ''
+
 ## Pull nexus repository from Docker Image
 
 echo '===== pulling Nexus Repository'
+
 echo ''
 
 sudo docker pull sonatype/nexus3
@@ -34,18 +45,18 @@ sudo docker pull sonatype/nexus3
 
 echo '===== Starting Nexus Image'
 
-sudo docker restart nexus &
+sudo docker restart nexus
+
+echo '===== Waiting Nexus start...'
+
+while ! nc localhost 8081; do ''; done &&
+
+echo '===== Nexus is running...'
 
 echo '===== Running nexus Image'
 echo ''
 
 sudo docker run -d -p 8081:8081 --name nexus sonatype/nexus3
-
-echo '===== Waiting Nexus start...'
-
-while ! echo exit | nc localhost 8081; do sleep 10; done
-
-echo '===== Nexus is running...'
 
 ## pull ActiveMQ from a Docker image
 
