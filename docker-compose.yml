@@ -11,50 +11,54 @@ services:
     tty: true
     network_mode: host
 
-  # mongodb:
-    # container_name: mongo
-    # image: mongo:3.6
-    # restart: always
-      # environment:
-      # - MONGO_DATA_DIR=/data/db
-      # - MONGO_LOG_DIR=/dev/null
-      # - MONGO_INITDB_ROOT_USERNAME=admin
-    # - MONGO_INITDB_ROOT_PASSWORD=admin123
-      # expose:
-    # - 27017
-      # ports:
-    # - 27017
-    # command: mongod --smallfiles --logpath=/dev/null # --quiet
-    # network_mode: host
-    # tty: true
+  mongodb:
+   container_name: mongo
+   image: mongo:3.6
+   restart: always
+   environment:
+    - MONGO_DATA_DIR=/data/db
+    - MONGO_LOG_DIR=/dev/null
+    - MONGO_INITDB_ROOT_USERNAME=admin
+    - MONGO_INITDB_ROOT_PASSWORD=admin123
+   expose:
+    - 27017
+   ports:
+    - 27017
+   command: mongod --smallfiles --logpath=/dev/null # --quiet
+   network_mode: host
+   tty: true
 
-    # discovery-service:
-      # build:
-      # context: ./discovery-server
-    # dockerfile: Dockerfile
-    # restart: on-failure
-      # volumes:
-    # - /data/discovery-server
-      # expose:
-    # - 8761
-      # ports:
-    # - 8761
-    # tty: true
-      # network_mode: host
+  discovery-service:
+    build:
+      context: ./discovery-server
+      dockerfile: Dockerfile
+    restart: on-failure
+    volumes:
+     - /data/discovery-server
+    expose:
+     - 8761
+    ports:
+      - 8761
+    tty: true
+    network_mode: host
 
-    # football-team:
-      # build:
-      # context: ./football-team
-    # dockerfile: Dockerfile
-    # restart: on-failure
-      # volumes:
-    # - /data/football-team
-      # expose:
-    # - 8084
-      # ports:
-    # - 8084
-    # tty: true
-    # network_mode: host
+  football-team:
+    build:
+      context: ./football-team
+      dockerfile: Dockerfile
+    restart: on-failure
+    volumes:
+     - /data/football-team
+    expose:
+     - 8084
+    ports:
+     - 8084
+    tty: true
+    network_mode: host
+    depends_on:
+      - common
+      - mongodb
+      - discovery-service
 
 
-    # command: "docker run --name service-discovery -p 8761:8761 --network host microservices-organism/service-discovery"
+    # docker-compose up --build
