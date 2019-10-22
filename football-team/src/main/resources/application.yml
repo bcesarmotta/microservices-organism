@@ -7,13 +7,16 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      authentication-database: admin
+      authentication-database: microservices
       username: admin
       password: admin123
       database: microservices
+      uri: mongodb://admin:admin123@localhost:27017/?authSource=microservices&authMechanism=SCRAM-SHA-1
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: http://localhost:8761/eureka/
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   instance:
     preferIpAddress: true

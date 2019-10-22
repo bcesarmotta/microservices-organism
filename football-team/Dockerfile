@@ -19,10 +19,10 @@ ADD ${JAR_FILE} footbal-team.jar
 # Run the jar file
 ENTRYPOINT ["java","-jar","/footbal-team.jar"]
 
-
 # Building the image
 # docker build -t microservices-organism/footbal-team .
 
 # Running container
 # we have specified that the port 8084 (on right) on the container should be mapped to the port 8084 (on left) on the Host OS.
-#  docker run --name footbal-team -p 8084:8084 microservices-organism/footbal-team
+# docker run --name footbal-team -p 8084:8084 --network microservices-organism microservices-organism/footbal-team
+# docker run --name footbal-team -p 8084:8084 --network host microservices-organism/footbal-team

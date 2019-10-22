@@ -25,4 +25,5 @@ ENTRYPOINT ["java","-jar","/service-discovery.jar"]
 
 # Running container
 # we have specified that the port 8761 (on right) on the container should be mapped to the port 8761 (on left) on the Host OS.
-#  docker run --name service-discovery -p 8761:8761 microservices-organism/service-discovery
+# docker run --name service-discovery -p 8761:8761 --network microservices-organism microservices-organism/service-discovery
+# docker run --name service-discovery -p 8761:8761 --network host microservices-organism/service-discovery
