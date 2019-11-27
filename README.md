@@ -39,6 +39,19 @@ docker-compose build --no-cache
 docker-compose up
 ```
 
+After run these steps, you will be able to check the available apis
+
+```
+/campaign
+/supporter-member
+/football-team
+```
+
+### Postman Collections
+
+The collections that I created to test this project can be found in the following link: [Postman Collections](https://www.getpostman.com/collections/cf6ad297081e9a205654).
+
+
 ### Next steps
 - [ ] Add a script to insert initial data
 - [ ] Add a guideline to explain how this project flows
