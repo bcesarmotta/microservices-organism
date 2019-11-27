@@ -7,12 +7,10 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      authentication-database: microservices
+      authentication-database: admin
       username: admin
       password: admin123
       database: microservices
-      uri: mongodb://admin:admin123@localhost:27017/?authSource=microservices&authMechanism=SCRAM-SHA-1
-
 eureka:
   client:
     serviceUrl:

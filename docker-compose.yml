@@ -1,32 +1,29 @@
-version: '3'
+version: '3.4'
 services:
-
   common:
+    network_mode: host
     build:
-      context: ./commons
+      network: host
+      context: ./commons/
       dockerfile: Dockerfile
     restart: on-failure
     ports:
-      - "8081"
+      - "80:80"
     tty: true
-    network_mode: host
 
   mongodb:
-   container_name: mongo
-   image: mongo:3.6
-   restart: always
-   environment:
-    - MONGO_DATA_DIR=/data/db
-    - MONGO_LOG_DIR=/dev/null
-    - MONGO_INITDB_ROOT_USERNAME=admin
-    - MONGO_INITDB_ROOT_PASSWORD=admin123
-   expose:
-    - 27017
-   ports:
-    - 27017
-   command: mongod --smallfiles --logpath=/dev/null # --quiet
-   network_mode: host
-   tty: true
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    expose:
+      - 27017
+    ports:
+      - 27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin123
+    network_mode: host
+    tty: true
 
   discovery-service:
     build:
@@ -34,9 +31,9 @@ services:
       dockerfile: Dockerfile
     restart: on-failure
     volumes:
-     - /data/discovery-server
+      - /data/discovery-server
     expose:
-     - 8761
+      - 8761
     ports:
       - 8761
     tty: true
@@ -48,17 +45,14 @@ services:
       dockerfile: Dockerfile
     restart: on-failure
     volumes:
-     - /data/football-team
+      - /data/football-team
     expose:
-     - 8084
+      - 8084
     ports:
-     - 8084
+      - 8084
     tty: true
     network_mode: host
     depends_on:
       - common
       - mongodb
       - discovery-service
-
-
-    # docker-compose up --build

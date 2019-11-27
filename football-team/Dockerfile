@@ -1,8 +1,5 @@
 # Install JDK 11
-FROM openjdk:11
-
-# Add Maintainer Info
-LABEL maintainer="bcesarmotta@yahoo.com.br"
+FROM openjdk:11.0.4-jre-slim
 
 # Add a volume pointing to /tmp
 VOLUME /tmp
