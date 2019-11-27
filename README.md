@@ -33,9 +33,7 @@ To get this project up, run the folowing steps:
 
 ```
 docker-compose down
-
 docker-compose build --no-cache
-
 docker-compose up
 ```
 
