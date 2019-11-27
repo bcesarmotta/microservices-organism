@@ -28,6 +28,17 @@ Docker
 Docker-compose
 ```
 
+### Run
+To get this project up, run the folowing steps:
+
+```
+docker-compose down
+
+docker-compose build --no-cache
+
+docker-compose up
+```
+
 ### Next steps
 - [ ] Add a script to insert initial data
 - [ ] Add a guideline to explain how this project flows
