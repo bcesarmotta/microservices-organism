@@ -5,13 +5,13 @@ FROM openjdk:11.0.4-jre-slim
 VOLUME /tmp
 
 # Make port 8084 available to the world outside this container
-EXPOSE 8083
+EXPOSE 8085
 
 # The application's jar file
 ARG JAR_FILE=target/*.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} campaign.jar
+ADD ${JAR_FILE} supporter-member.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-jar","/campaign.jar"]
+ENTRYPOINT ["java","-jar","/supporter-member.jar"]

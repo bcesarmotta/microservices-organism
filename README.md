@@ -24,24 +24,11 @@ This project was designed based on Domain Drive Design concepts, and it work as 
 To get this project working, you will need to install the following technologies:
 
 ```
-Maven
 Docker
-MongoDB
-ActiveMQ
+Docker-compose
 ```
 
-### Installing
-To install and start the required dependencies for the project, just run the <b>setup.sh</b> script located at the root of this project and the script will do the entire job for you.
-This project was designed using the following technologies:
-
-```
-- Docker
-- Java 8+
-- Spring Cloud
-- Mongodb
-- Nexus Repository for dependencies management
-- Active MQ
-```
-
-
-
+### Next steps
+[ ] Add a script to insert initial data
+[ ] Add a guideline to explain how this project flows
+[ ] Verify the Queue flow 

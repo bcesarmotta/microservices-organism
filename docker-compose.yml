@@ -25,6 +25,14 @@ services:
     network_mode: host
     tty: true
 
+  activeMQ:
+    container_name: activeMQ
+    image: rmohr/activemq
+    restart: always
+    network_mode: host
+    tty: true
+
+
   discovery-service:
     build:
       context: ./discovery-server
@@ -56,3 +64,53 @@ services:
       - common
       - mongodb
       - discovery-service
+
+  campaign:
+    build:
+      context: ./campaign
+      dockerfile: Dockerfile
+    restart: on-failure
+    volumes:
+      - /data/campaign
+    expose:
+      - 8083
+    ports:
+      - 8083
+    tty: true
+    network_mode: host
+    depends_on:
+      - common
+      - mongodb
+      - discovery-service
+
+  supporter-member:
+    build:
+      context: ./supporter-member
+      dockerfile: Dockerfile
+    restart: on-failure
+    volumes:
+      - /data/supporter-member
+    expose:
+      - 8085
+    ports:
+      - 8085
+    tty: true
+    network_mode: host
+    depends_on:
+      - common
+      - mongodb
+      - discovery-service
+
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    restart: on-failure
+    volumes:
+      - /data/gateway
+    expose:
+      - 8111
+    ports:
+      - 8111
+    tty: true
+    network_mode: host
