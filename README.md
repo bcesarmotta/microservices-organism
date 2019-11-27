@@ -29,6 +29,6 @@ Docker-compose
 ```
 
 ### Next steps
-[ ] Add a script to insert initial data
-[ ] Add a guideline to explain how this project flows
-[ ] Verify the Queue flow 
+- [ ] Add a script to insert initial data
+- [ ] Add a guideline to explain how this project flows
+- [ ] Verify the Queue flow 
