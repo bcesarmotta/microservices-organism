@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf0a8a-db6b-4a3f-90f7-95cfbe954988" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/campaign/src/test/java/com/microservices/campaign/test/CampaignServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/football-team/src/test/java/com/microservices/footballTeam/test/FootballTeamServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/campaign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/campaign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/football-team/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/football-team/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/football-team/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/football-team/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/football-team/src/main/java/com/microservices/footballTeam/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/football-team/src/main/java/com/microservices/footballTeam/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supporter-member/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/supporter-member/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +51,12 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/football-team" />
     <property name="settings.editor.selected.configurable" value="coverage" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/football-team" />
       <recent name="$PROJECT_DIR$/gateway" />
       <recent name="$PROJECT_DIR$/campaign" />
       <recent name="$PROJECT_DIR$/supporter-member" />

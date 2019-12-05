@@ -25,14 +25,6 @@
         <java.version>10</java.version>
     </properties>
 
-    <!-- If you want only to download dependencies from Nexus -->
-    <repositories>
-        <repository>
-            <id>microservices-repository</id>
-            <url>${nexus.url}/${nexus.repository}</url>
-        </repository>
-    </repositories>
-
     <!-- if you want also to publish your project -->
     <distributionManagement>
         <snapshotRepository>
@@ -44,6 +36,14 @@
             <url>${nexus.url}/maven-releases/</url>
         </repository>
     </distributionManagement>
+
+    <!-- If you want only to download dependencies from Nexus -->
+    <repositories>
+        <repository>
+            <id>microservices-repository</id>
+            <url>${nexus.url}/${nexus.repository}</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>

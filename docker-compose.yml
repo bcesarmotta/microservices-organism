@@ -32,7 +32,6 @@ services:
     network_mode: host
     tty: true
 
-
   discovery-service:
     build:
       context: ./discovery-server
@@ -64,7 +63,6 @@ services:
       - common
       - mongodb
       - discovery-service
-
   campaign:
     build:
       context: ./campaign
