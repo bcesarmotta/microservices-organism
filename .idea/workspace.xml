@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf0a8a-db6b-4a3f-90f7-95cfbe954988" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/football-team/src/test/java/com/microservices/footballTeam/test/FootballTeamServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/football-team/src/test/java/com/microservices/footballTeam/test/FootballTeamServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
