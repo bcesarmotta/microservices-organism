@@ -18,7 +18,6 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class FootballTeamServiceTest {
 
-    /**/
     @Mock
     private IFootballTeamRepository footballTeamRepository;
 
