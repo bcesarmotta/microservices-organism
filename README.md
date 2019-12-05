@@ -54,3 +54,4 @@ The collections that I created to test this project can be found in the followin
 - [ ] Add a script to insert initial data
 - [ ] Add a guideline to explain how this project flows
 - [ ] Verify the Queue flow 
+- [ ] Add nexus Repository to docker-compose
