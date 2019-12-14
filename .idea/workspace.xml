@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf0a8a-db6b-4a3f-90f7-95cfbe954988" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/football-team/settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/campaign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/campaign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/src/test/java/com/microservices/campaign/test/CampaignServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/src/test/java/com/microservices/campaign/test/CampaignServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/football-team/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/football-team/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/football-team/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/football-team/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/football-team/src/main/java/com/microservices/footballTeam/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/football-team/src/main/java/com/microservices/footballTeam/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
