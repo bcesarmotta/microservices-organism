@@ -1,7 +1,6 @@
 package com.microservices.footballTeam.test;
 
 import com.microservices.commons.model.FootballTeamModel;
-import com.microservices.commons.param.FootballTeamParam;
 import com.microservices.footballTeam.repository.IFootballTeamRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -32,37 +32,17 @@ public class FootballTeamServiceTest {
         when(footballTeamRepository.save(any(FootballTeamModel.class))).thenReturn(model);
     }
 
-    @DisplayName("Test to save a new football teal called Santos")
+    @DisplayName("Test to return a list of football teams from the service")
     @Test
-    void testB_saveFootballTeam() throws ParseException {
-        FootballTeamModel model = new FootballTeamModel();
-        model.setName("Santos Futebol clube");
+    void testB_listFootballTeams() throws ParseException {
 
-        model.setFoundationDate(new SimpleDateFormat("dd/MM/yyyy").parse("14/04/1912"));
-
-        when(footballTeamRepository.save(any(FootballTeamModel.class))).thenReturn(model);
+        assertEquals(footballTeamRepository.findAll(), Arrays.asList());
     }
 
-    @DisplayName("Test to save a new football teal called São Paulo")
+    @DisplayName("Test to return a football team from the service based on id")
     @Test
-    void testC_saveFootballTeam() throws ParseException {
-        FootballTeamModel model = new FootballTeamModel();
-        model.setName("São Paulo Futebol Clube");
-
-        model.setFoundationDate(new SimpleDateFormat("dd/MM/yyyy").parse("25/01/1930"));
-
-        when(footballTeamRepository.save(any(FootballTeamModel.class))).thenReturn(model);
+    void testC_listFootballTeamById() throws ParseException {
+        FootballTeamModel model = footballTeamRepository.findAll().stream().findFirst().orElse(new FootballTeamModel());
+        when(footballTeamRepository.findById(model.getId())).thenReturn(java.util.Optional.of(model));
     }
-
-    @DisplayName("Test to save a new football teal called Corinthians")
-    @Test
-    void testD_saveFootballTeam() throws ParseException {
-        FootballTeamModel model = new FootballTeamModel();
-        model.setName("Sport Club Corinthians Paulista");
-
-        model.setFoundationDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/09/1910"));
-
-        when(footballTeamRepository.save(any(FootballTeamModel.class))).thenReturn(model);
-    }
-
 }

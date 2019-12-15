@@ -27,23 +27,27 @@ public class CampaignServiceTest {
     @Mock
     private FootballTeamConsumer footballTeamConsumer;
 
-    private static final String FOOTBALL_TEAM_ID_PALMEIRAS = "5dee7e6e92a5d400014b535c";
-
     @DisplayName("Test to save a campaign in database")
     @Test
-    public void testSaveCampaign() throws ParseException {
+    public void testA_SaveCampaign() throws ParseException {
         CampaignModel model = new CampaignModel();
         model.setName("Campanha 1");
         model.setInitialEffectiveDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2020"));
         model.setFinalEffectiveDate(new SimpleDateFormat("dd/MM/yyyy").parse("03/01/2020"));
-        model.setFootballTeamId(FOOTBALL_TEAM_ID_PALMEIRAS);
 
         when(campaignRepository.save(any(CampaignModel.class))).thenReturn(model);
     }
 
     @DisplayName("Test to return a campaign list from the service")
     @Test
-    public void testListCampaigns() {
+    public void testB_ListCampaigns() {
         assertEquals(campaignRepository.findAll(), Arrays.asList());
+    }
+
+    @DisplayName("Test to return a campaign team from the service based on id")
+    @Test
+    void testC_listFootballTeamById() throws ParseException {
+        CampaignModel model = campaignRepository.findAll().stream().findFirst().orElse(new CampaignModel());
+        when(campaignRepository.findById(model.getId())).thenReturn(java.util.Optional.of(model));
     }
 }

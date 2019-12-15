@@ -50,10 +50,8 @@ The collections that I created to test this project can be found in the followin
 
 
 ### Next steps
-- [ ] Add unit tests to football team service
-- [ ] Add unit tests to campaign service
-- [ ] Add unit tests to football supporter member service
-- [ ] Add a script to insert initial data
 - [ ] Add a guideline to explain how this project flows
 - [ ] Verify the Queue flow 
 - [ ] Add nexus Repository to docker-compose
+- [ ] Add authentication api with Go Lang
+- [ ] Add Authorization api with Go Lang

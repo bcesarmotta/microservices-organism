@@ -19,7 +19,7 @@ public class CampaignListener {
     private SupporterMemberConsumer suporterMemberConsumer;
 
     @JmsListener(destination = "campaign.associateCampaignsToUser.queue")
-    private void associateCampaignsToUserListener(String message) {
+    public void associateCampaignsToUserListener(String message) {
         Optional.ofNullable(message)
                 .ifPresent(payload -> {
                     SupporterMemberParam param = gson.fromJson(payload, SupporterMemberParam.class);

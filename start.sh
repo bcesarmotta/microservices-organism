@@ -9,3 +9,4 @@ docker-compose up
 
 # To run only some services
 docker-compose up -d service_name
+docker-compose start service_name

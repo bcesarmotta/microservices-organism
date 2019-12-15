@@ -117,7 +117,7 @@ public class SupporterMemberService implements ISupporterMemberService{
         List<CampaignPresenter> campaigns = consumer.findByFootballTeamId(footballTeamId);
 
         param.setId(userId);
-        param.setCampaignIds(
+        param.setCampaignIds(d
                 campaigns.stream()
                         .map(CampaignPresenter::getId)
                         .collect(Collectors.toList())
