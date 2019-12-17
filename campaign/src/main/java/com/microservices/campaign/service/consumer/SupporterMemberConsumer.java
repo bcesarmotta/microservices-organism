@@ -1,5 +1,6 @@
 package com.microservices.campaign.service.consumer;
 
+import com.google.gson.Gson;
 import com.microservices.commons.param.SupporterMemberParam;
 import com.microservices.commons.presenter.FootballTeamPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,24 +27,22 @@ public class SupporterMemberConsumer {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Autowired
+    private Gson gson;
+
     public void associateCampaignsToUser(SupporterMemberParam param) {
         discoveryClient.getInstances(SUPPORTER_MEMBER_SERVICE_NAME)
                 .stream()
                 .findFirst()
                 .map(
                         service ->
-                                restTemplate.exchange(
-                                        service.getUri() + SUPPORTER_MEMBER_SERVICE_PATH + param.getId(),
-                                        HttpMethod.PUT,
-                                        getDefaultHeaders(),
-                                        FootballTeamPresenter.class)
-                );
-    }
+                        {
+                            HttpHeaders headers = new HttpHeaders();
+                            headers.setContentType(MediaType.APPLICATION_JSON);
+                            HttpEntity<String> entity = new HttpEntity<String>(gson.toJson(param), headers);
 
-    private HttpEntity getDefaultHeaders() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity <String> entity = new HttpEntity<String>(headers);
-        return entity;
+                            return restTemplate.exchange(service.getUri() + SUPPORTER_MEMBER_SERVICE_PATH + param.getId(), HttpMethod.PUT, entity, FootballTeamPresenter.class);
+                        }
+                );
     }
 }
