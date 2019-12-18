@@ -51,7 +51,6 @@ The collections that I created to test this project can be found in the followin
 
 ### Next steps
 - [ ] Add a guideline to explain how this project flows
-- [ ] Verify the Queue flow 
 - [ ] Add nexus Repository to docker-compose
 - [ ] Add authentication api with Go Lang
 - [ ] Add Authorization api with Go Lang
