@@ -1,29 +1,39 @@
 # Install JDK 11
+FROM maven:3.6.3-jdk-11-slim AS maven
+
+WORKDIR /build
+
+COPY . .
+
+RUN mkdir -p $MAVEN_CONFIG
+
+RUN mkdir -p $MAVEN_CONFIG/repository/
+
+COPY ./settings.xml $MAVEN_HOME/conf/
+
+COPY ./settings.xml $MAVEN_CONFIG
+
+COPY ./settings-security.xml $MAVEN_CONFIG
+
+RUN mvn clean package
+
+COPY . .
+
+# Install JDK 11
 FROM openjdk:11.0.4-jre-slim
 
-# Add Maintainer Info
-LABEL maintainer="bcesarmotta@yahoo.com.br"
+WORKDIR /build
 
-# Add a volume pointing to /tmp
-VOLUME /tmp
+RUN mkdir -p /build/target/
 
-# Make port 8761 available to the world outside this container
+COPY --from=maven /build/target/*.jar /build/target/
+
 EXPOSE 8761
 
-# The application's jar file
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=/build/target/*.jar
 
-# Add the application's jar to the container
-ADD ${JAR_FILE} service-discovery.jar
+RUN cp ${JAR_FILE} /build/target/discovery-server.jar
 
-# Run the jar file 
-ENTRYPOINT ["java","-jar","/service-discovery.jar"]
+RUN ls -la /build/target/
 
-
-# Building the image
-# docker build -t microservices-organism/service-discovery .
-
-# Running container
-# we have specified that the port 8761 (on right) on the container should be mapped to the port 8761 (on left) on the Host OS.
-# docker run --name service-discovery -p 8761:8761 --network microservices-organism microservices-organism/service-discovery
-# docker run --name service-discovery -p 8761:8761 --network host microservices-organism/service-discovery
+ENTRYPOINT ["java","-jar","/build/target/discovery-server.jar"]

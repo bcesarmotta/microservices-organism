@@ -19,10 +19,11 @@ This project was designed based on Domain Drive Design concepts, and it work as 
 - Zuul for Api Gateway
 ```
 
-### Prerequisites
+### Pre-requisites
 To get this project working, you will need to install the following technologies:
 
 ```
+Nexus
 Docker
 Docker-compose
 ```
@@ -36,7 +37,7 @@ docker-compose build --no-cache
 docker-compose up
 ```
 
-After run these steps, you will be able to check the available apis
+After run these steps, you will be able to check the available apis for the following services
 
 ```
 /campaign

@@ -19,21 +19,28 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <nexus.url>http://admin:admin123@localhost:8081/repository/microservices-repository/</nexus.url>
+        <nexus.url>http://localhost:8081/repository</nexus.url>
+        <nexus.repository>microservices-repository/</nexus.repository>
         <java.version>10</java.version>
     </properties>
 
+    <!-- if you want also to publish your project -->
     <distributionManagement>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>${nexus.url}/maven-snapshots/</url>
+        </snapshotRepository>
         <repository>
-            <id>nexus-snapshots</id>
-            <url>${nexus.url}</url>
+            <id>maven-releases</id>
+            <url>${nexus.url}/maven-releases/</url>
         </repository>
     </distributionManagement>
 
+    <!-- If you want only to download dependencies from Nexus -->
     <repositories>
         <repository>
-            <id>nexus-releases</id>
-            <url>${nexus.url}</url>
+            <id>microservices-repository</id>
+            <url>${nexus.url}/${nexus.repository}</url>
         </repository>
     </repositories>
 

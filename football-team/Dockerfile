@@ -1,28 +1,44 @@
 # Install JDK 11
+FROM maven:3.6.3-jdk-11-slim AS maven
+
+WORKDIR /build
+
+COPY . .
+
+RUN mkdir -p $MAVEN_CONFIG
+
+RUN mkdir -p $MAVEN_CONFIG/repository/
+
+COPY ./settings.xml $MAVEN_HOME/conf/
+
+COPY ./settings.xml $MAVEN_CONFIG
+
+COPY ./settings-security.xml $MAVEN_CONFIG
+
+RUN mvn clean package deploy
+
+COPY . .
+
+# Install JDK 11
 FROM openjdk:11.0.4-jre-slim
 
-# Add Maintainer Info
-LABEL maintainer="bcesarmotta@yahoo.com.br"
+WORKDIR /build
 
-# Add a volume pointing to /tmp
-VOLUME /tmp
+RUN mkdir -p /build/target/
 
-# Make port 8084 available to the world outside this container
+COPY --from=maven /build/target/*.jar /build/target/
+
 EXPOSE 8084
 
-# The application's jar file
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=/build/target/*.jar
 
-# Add the application's jar to the container
-ADD ${JAR_FILE} footbal-team.jar
+RUN cp ${JAR_FILE} /build/target/football-team.jar
 
-# Run the jar file
-ENTRYPOINT ["java","-jar","/footbal-team.jar"]
+RUN ls -la /build/target/
 
-# Building the image
-# docker build -t microservices-organism/footbal-team .
+ENTRYPOINT ["java","-jar","/build/target/football-team.jar"]
 
 # Running container
 # we have specified that the port 8084 (on right) on the container should be mapped to the port 8084 (on left) on the Host OS.
-# docker run --name footbal-team -p 8084:8084 --network microservices-organism microservices-organism/footbal-team
-# docker run --name footbal-team -p 8084:8084 --network host microservices-organism/footbal-team
+# docker run --name football-team -p 8761:8761 --network microservices-organism microservices-organism/football-team
+# docker run --name football-team -p 8761:8761 --network host microservices-organism/football-team

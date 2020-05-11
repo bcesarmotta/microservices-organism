@@ -1,14 +1,17 @@
 version: '3.4'
 services:
   common:
-    network_mode: host
+    restart: always
     build:
       network: host
       context: ./commons/
       dockerfile: Dockerfile
-    restart: on-failure
+    expose:
+      - 8081
     ports:
       - "80:80"
+      - 8081:8081
+    network_mode: host
     tty: true
 
   mongodb:
@@ -32,8 +35,24 @@ services:
     network_mode: host
     tty: true
 
+  gateway-service:
+    build:
+      network: host
+      context: ./gateway
+      dockerfile: Dockerfile
+    restart: on-failure
+    volumes:
+      - /data/gateway-service
+    expose:
+      - 8111
+    ports:
+      - 8111
+    tty: true
+    network_mode: host
+
   discovery-service:
     build:
+      network: host
       context: ./discovery-server
       dockerfile: Dockerfile
     restart: on-failure
@@ -48,67 +67,57 @@ services:
 
   football-team:
     build:
+      network: host
       context: ./football-team
       dockerfile: Dockerfile
     restart: on-failure
-    volumes:
-      - /data/football-team
     expose:
       - 8084
+      - 8081
     ports:
-      - 8084
+      - "80:80"
     tty: true
     network_mode: host
     depends_on:
       - common
       - mongodb
       - discovery-service
-  campaign:
-    build:
-      context: ./campaign
-      dockerfile: Dockerfile
-    restart: on-failure
-    volumes:
-      - /data/campaign
-    expose:
-      - 8083
-    ports:
-      - 8083
-    tty: true
-    network_mode: host
-    depends_on:
-      - common
-      - mongodb
-      - discovery-service
+      - gateway-service
 
   supporter-member:
     build:
+      network: host
       context: ./supporter-member
       dockerfile: Dockerfile
     restart: on-failure
-    volumes:
-      - /data/supporter-member
     expose:
       - 8085
+      - 8081
     ports:
-      - 8085
+      - "80:80"
     tty: true
     network_mode: host
     depends_on:
       - common
       - mongodb
       - discovery-service
+      - gateway-service
 
-  gateway:
+  campaign-service:
     build:
-      context: ./gateway
+      network: host
+      context: ./campaign
       dockerfile: Dockerfile
     restart: on-failure
-    volumes:
-      - /data/gateway
     expose:
-      - 8111
+      - 8083
+      - 8081
     ports:
-      - 8111
+      - "80:80"
     tty: true
     network_mode: host
+    depends_on:
+      - common
+      - mongodb
+      - discovery-service
+      - gateway-service

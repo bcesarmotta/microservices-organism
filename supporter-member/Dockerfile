@@ -1,17 +1,39 @@
 # Install JDK 11
+FROM maven:3.6.3-jdk-11-slim AS maven
+
+WORKDIR /build
+
+COPY . .
+
+RUN mkdir -p $MAVEN_CONFIG
+
+RUN mkdir -p $MAVEN_CONFIG/repository/
+
+COPY ./settings.xml $MAVEN_HOME/conf/
+
+COPY ./settings.xml $MAVEN_CONFIG
+
+COPY ./settings-security.xml $MAVEN_CONFIG
+
+RUN mvn clean package deploy
+
+COPY . .
+
+# Install JDK 11
 FROM openjdk:11.0.4-jre-slim
 
-# Add a volume pointing to /tmp
-VOLUME /tmp
+WORKDIR /build
 
-# Make port 8084 available to the world outside this container
+RUN mkdir -p /build/target/
+
+COPY --from=maven /build/target/*.jar /build/target/
+
 EXPOSE 8085
 
-# The application's jar file
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=/build/target/*.jar
 
-# Add the application's jar to the container
-ADD ${JAR_FILE} supporter-member.jar
+RUN cp ${JAR_FILE} /build/target/supporter-member.jar
 
-# Run the jar file
-ENTRYPOINT ["java","-jar","/supporter-member.jar"]
+RUN ls -la /build/target/
+
+ENTRYPOINT ["java","-jar","/build/target/supporter-member.jar"]
