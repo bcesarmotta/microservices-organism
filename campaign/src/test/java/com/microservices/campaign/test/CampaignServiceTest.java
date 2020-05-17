@@ -21,33 +21,33 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class CampaignServiceTest {
 
-    @Mock
-    private ICampaignRepository campaignRepository;
-
-    @Mock
-    private FootballTeamConsumer footballTeamConsumer;
-
-    @DisplayName("Test to save a campaign in database")
-    @Test
-    public void testA_SaveCampaign() throws ParseException {
-        CampaignModel model = new CampaignModel();
-        model.setName("Campanha 1");
-        model.setInitialEffectiveDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2020"));
-        model.setFinalEffectiveDate(new SimpleDateFormat("dd/MM/yyyy").parse("03/01/2020"));
-
-        when(campaignRepository.save(any(CampaignModel.class))).thenReturn(model);
-    }
-
-    @DisplayName("Test to return a campaign list from the service")
-    @Test
-    public void testB_ListCampaigns() {
-        assertEquals(campaignRepository.findAll(), Arrays.asList());
-    }
-
-    @DisplayName("Test to return a campaign team from the service based on id")
-    @Test
-    void testC_listFootballTeamById() throws ParseException {
-        CampaignModel model = campaignRepository.findAll().stream().findFirst().orElse(new CampaignModel());
-        when(campaignRepository.findById(model.getId())).thenReturn(java.util.Optional.of(model));
-    }
+//    @Mock
+//    private ICampaignRepository campaignRepository;
+//
+//    @Mock
+//    private FootballTeamConsumer footballTeamConsumer;
+//
+//    @DisplayName("Test to save a campaign in database")
+//    @Test
+//    public void testA_SaveCampaign() throws ParseException {
+//        CampaignModel model = new CampaignModel();
+//        model.setName("Campanha 1");
+//        model.setInitialEffectiveDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2020"));
+//        model.setFinalEffectiveDate(new SimpleDateFormat("dd/MM/yyyy").parse("03/01/2020"));
+//
+//        when(campaignRepository.save(any(CampaignModel.class))).thenReturn(model);
+//    }
+//
+//    @DisplayName("Test to return a campaign list from the service")
+//    @Test
+//    public void testB_ListCampaigns() {
+//        assertEquals(campaignRepository.findAll(), Arrays.asList());
+//    }
+//
+//    @DisplayName("Test to return a campaign team from the service based on id")
+//    @Test
+//    void testC_listFootballTeamById() throws ParseException {
+//        CampaignModel model = campaignRepository.findAll().stream().findFirst().orElse(new CampaignModel());
+//        when(campaignRepository.findById(model.getId())).thenReturn(java.util.Optional.of(model));
+//    }
 }
