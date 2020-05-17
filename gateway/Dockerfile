@@ -32,8 +32,8 @@ EXPOSE 8111
 
 ARG JAR_FILE=/build/target/*.jar
 
-RUN cp ${JAR_FILE} /build/target/gateway.jar
+RUN echo ${JAR_FILE}
 
-RUN ls -la /build/target/
+RUN cp ${JAR_FILE} /build/target/gateway.jar
 
 ENTRYPOINT ["java","-jar","/build/target/gateway.jar"]

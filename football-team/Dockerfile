@@ -34,8 +34,6 @@ ARG JAR_FILE=/build/target/*.jar
 
 RUN cp ${JAR_FILE} /build/target/football-team.jar
 
-RUN ls -la /build/target/
-
 ENTRYPOINT ["java","-jar","/build/target/football-team.jar"]
 
 # Running container

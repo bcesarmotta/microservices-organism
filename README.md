@@ -6,18 +6,16 @@ These instructions will guide you through the understanding and configuration of
 After you following this tutorial, will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ## The Project
-This project consists in a communication between campaigns versus supporters versus footballTeam, where one or more campaigns related to a football team can be associated to a given customer (in this case the suporter member)
+This project consists in a related communication between campaigns, supporters members and football teams where one or more campaigns can be related to a football team, and a Football Team can be associated to a given customer (in this case the suporter member)
 
 ### Architecture
-This project was designed based on Domain Drive Design concepts, and it work as a part of a micro-services environment, exchanging data through API requests and Queue/Messaging (assynchronous requests).
+This project was designed based on Domain Drive Design concepts, and it works following microvervices concepts, exchanging data through API requests and Queue/Messaging (assynchronous requests).
 
-#### Patterns
+#### Context Diagram
+[Working on it]
 
-```
-- HTTP REST for Apis
-- Eureka for Service Discovery
-- Zuul for Api Gateway
-```
+#### Integration Diagram
+[Working on it]
 
 ### Pre-requisites
 To get this project working, you will need to install the following technologies:
@@ -32,12 +30,13 @@ Docker-compose
 To get this project up, run the folowing steps:
 
 ```
+docker restart nexus
 docker-compose down
 docker-compose build --no-cache
 docker-compose up
 ```
 
-After run these steps, you will be able to check the available apis for the following services
+After run these steps, you will be able to check the available APIs for the following services
 
 ```
 /campaign
@@ -45,13 +44,14 @@ After run these steps, you will be able to check the available apis for the foll
 /football-team
 ```
 
+You will also able to check the Eureka Service discovery and the Gateway API.
+
 ### Postman Collections
 
 The collections that I created to test this project can be found in the following link: [Postman Collections](https://www.getpostman.com/collections/cf6ad297081e9a205654).
 
-
 ### Next steps
-- [ ] Add a guideline to explain how this project flows
+- [ ] Add a guideline to explain how this project works
 - [ ] Add nexus Repository to docker-compose
 - [ ] Add authentication api with Go Lang
 - [ ] Add Authorization api with Go Lang

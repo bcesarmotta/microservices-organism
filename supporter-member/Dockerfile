@@ -34,6 +34,4 @@ ARG JAR_FILE=/build/target/*.jar
 
 RUN cp ${JAR_FILE} /build/target/supporter-member.jar
 
-RUN ls -la /build/target/
-
 ENTRYPOINT ["java","-jar","/build/target/supporter-member.jar"]
